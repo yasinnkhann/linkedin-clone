@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-const Rightside = (props) => {
+const Rightside = props => {
   return (
     <Container>
       <FollowCard>
         <Title>
           <h2>Add to your feed</h2>
-          <img src="/images/feed-icon.svg" alt="" />
+          <img src='/images/feed-icon.svg' alt='' />
         </Title>
 
         <FeedList>
@@ -32,11 +32,11 @@ const Rightside = (props) => {
 
         <Recommendation>
           View all recommendations
-          <img src="/images/right-icon.svg" alt="" />
+          <img src='/images/right-icon.svg' alt='' />
         </Recommendation>
       </FollowCard>
       <BannerCard>
-        <img src="/images/jobs-ad.jpeg" alt="" />
+        <img src='/images/jobs-ad.jpeg' alt='' />
       </BannerCard>
     </Container>
   );

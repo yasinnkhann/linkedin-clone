@@ -13,13 +13,13 @@ function App(props) {
   }, []);
 
   return (
-    <div className="App">
+    <div className='App'>
       <Router>
         <Switch>
-          <Route exact path="/">
+          <Route exact path='/'>
             <Login />
           </Route>
-          <Route path="/home">
+          <Route path='/home'>
             <Header />
             <Home />
           </Route>
@@ -29,11 +29,11 @@ function App(props) {
   );
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {};
 };
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   getUserAuth: () => dispatch(getUserAuth()),
 });
 

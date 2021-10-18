@@ -5,14 +5,14 @@ import styled from 'styled-components';
 import PostModal from './PostModal';
 import { getArticlesAPI } from '../actions';
 
-const Main = (props) => {
+const Main = props => {
   const [showModal, setShowModal] = useState('close');
 
   useEffect(() => {
     props.getArticles();
   }, []);
 
-  const handleClick = (e) => {
+  const handleClick = e => {
     e.preventDefault();
 
     if (e.target !== e.currentTarget) {
@@ -41,9 +41,9 @@ const Main = (props) => {
           <ShareBox>
             <div>
               {props.user && props.user.photoURL ? (
-                <img src={props.user.photoURL} alt="" />
+                <img src={props.user.photoURL} alt='' />
               ) : (
-                <img src="/images/user.svg" alt="" />
+                <img src='/images/user.svg' alt='' />
               )}
               <button
                 onClick={handleClick}
@@ -55,34 +55,34 @@ const Main = (props) => {
 
             <div>
               <button>
-                <img src="/images/photo-icon.png" alt="" />
+                <img src='/images/photo-icon.png' alt='' />
                 <span>Photo</span>
               </button>
 
               <button>
-                <img src="/images/video-icon.png" alt="" />
+                <img src='/images/video-icon.png' alt='' />
                 <span>Video</span>
               </button>
 
               <button>
-                <img src="/images/event-icon.png" alt="" />
+                <img src='/images/event-icon.png' alt='' />
                 <span>Event</span>
               </button>
 
               <button>
-                <img src="/images/article-icon.svg" alt="" />
-                <span>Write article</span>
+                <img src='/images/article-icon.svg' alt='' />
+                <span>Article</span>
               </button>
             </div>
           </ShareBox>
           <Content>
-            {props.loading && <img src="/images/spin-loader.gif" alt="" />}
+            {props.loading && <img src='/images/spin-loader.gif' alt='' />}
             {props.articles.length > 0 &&
               props.articles.map((article, key) => (
                 <Article key={key}>
                   <SharedActor>
                     <a>
-                      <img src={article.actor.image} alt="" />
+                      <img src={article.actor.image} alt='' />
                       <div>
                         <span>{article.actor.title}</span>
                         <span>{article.actor.description}</span>
@@ -92,17 +92,17 @@ const Main = (props) => {
                       </div>
                     </a>
                     <button>
-                      <img src="/images/ellipsis.svg" alt="" />
+                      <img src='/images/ellipsis.svg' alt='' />
                     </button>
                   </SharedActor>
                   <Description>{article.description}</Description>
                   <SharedImg>
                     <a>
                       {!article.sharedImg && article.video ? (
-                        <ReactPlayer width="100%" url={article.video} />
+                        <ReactPlayer width='100%' url={article.video} />
                       ) : (
                         article.sharedImg && (
-                          <img src={article.sharedImg} alt="" />
+                          <img src={article.sharedImg} alt='' />
                         )
                       )}
                     </a>
@@ -110,8 +110,8 @@ const Main = (props) => {
                   <SocialCounts>
                     <li>
                       <button>
-                        <img src="/images/heart-icon.svg" alt="" />
-                        <img src="/images/clapping.png" alt="" />
+                        <img src='/images/heart-icon.svg' alt='' />
+                        <img src='/images/clapping.png' alt='' />
                         <span>75</span>
                       </button>
                     </li>
@@ -121,19 +121,19 @@ const Main = (props) => {
                   </SocialCounts>
                   <SocialActions>
                     <button>
-                      <img src="/images/like-icon.svg" alt="" />
+                      <img src='/images/like-icon.svg' alt='' />
                       <span>Like</span>
                     </button>
                     <button>
-                      <img src="/images/comment-icon.png" alt="" />
+                      <img src='/images/comment-icon.png' alt='' />
                       <span>Comment</span>
                     </button>
                     <button>
-                      <img src="/images/share-icon.png" alt="" />
+                      <img src='/images/share-icon.png' alt='' />
                       <span>Share</span>
                     </button>
                     <button>
-                      <img src="/images/send-icon.png" alt="" />
+                      <img src='/images/send-icon.png' alt='' />
                       <span>Send</span>
                     </button>
                   </SocialActions>
@@ -345,7 +345,7 @@ const Content = styled.div`
   }
 `;
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     loading: state.articleState.loading,
     user: state.userState.user,
@@ -353,7 +353,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   getArticles: () => dispatch(getArticlesAPI()),
 });
 

@@ -5,10 +5,10 @@ import Rightside from './Rightside';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
 
-const Home = (props) => {
+const Home = props => {
   return (
     <Container>
-      {!props.user && <Redirect to="/" />}
+      {!props.user && <Redirect to='/' />}
       <Section>
         <h5>
           <a>Hiring in a hurry?</a>
@@ -81,7 +81,7 @@ const Layout = styled.div`
   }
 `;
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     user: state.userState.user,
   };

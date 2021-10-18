@@ -8,13 +8,13 @@ import 'firebase/compat/auth';
 import 'firebase/compat/storage';
 import { postArticleAPI } from '../actions';
 
-const PostModal = (props) => {
+const PostModal = props => {
   const [editorText, setEditorText] = useState('');
   const [shareImage, setShareImage] = useState('');
   const [videoLink, setVideoLink] = useState('');
   const [assetArea, setAssetArea] = useState('');
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const image = e.target.files[0];
 
     if (image === '' || image === undefined) {
@@ -24,13 +24,13 @@ const PostModal = (props) => {
     setShareImage(image);
   };
 
-  const switchAssetArea = (area) => {
+  const switchAssetArea = area => {
     setShareImage('');
     setVideoLink('');
     setAssetArea(area);
   };
 
-  const postArticle = (e) => {
+  const postArticle = e => {
     e.preventDefault();
     if (e.target !== e.currentTarget) {
       return;
@@ -48,7 +48,7 @@ const PostModal = (props) => {
     reset(e);
   };
 
-  const reset = (e) => {
+  const reset = e => {
     setEditorText('');
     setShareImage('');
     setVideoLink('');
@@ -63,54 +63,54 @@ const PostModal = (props) => {
           <Content>
             <Header>
               <h2>Create a post</h2>
-              <button onClick={(e) => reset(e)}>
-                <img src="/images/close-icon.svg" alt="" />
+              <button onClick={e => reset(e)}>
+                <img src='/images/close-icon.svg' alt='' />
               </button>
             </Header>
             <SharedContent>
               <UserInfo>
                 {props.user.photoURL ? (
-                  <img src={props.user.photoURL} alt="" />
+                  <img src={props.user.photoURL} alt='' />
                 ) : (
-                  <img src="/images/user.svg" alt="" />
+                  <img src='/images/user.svg' alt='' />
                 )}
                 <span>{props.user.displayName}</span>
               </UserInfo>
               <Editor>
                 <textarea
                   value={editorText}
-                  onChange={(e) => setEditorText(e.target.value)}
-                  placeholder="What do you want to talk about?"
+                  onChange={e => setEditorText(e.target.value)}
+                  placeholder='What do you want to talk about?'
                   autoFocus={true}
                 />
                 {assetArea === 'image' ? (
                   <UploadImage>
                     <input
-                      type="file"
-                      accept="image/gif, image/jpeg, image/png"
-                      name="image"
-                      id="file"
+                      type='file'
+                      accept='image/gif, image/jpeg, image/png'
+                      name='image'
+                      id='file'
                       style={{ display: 'none' }}
                       onChange={handleChange}
                     />
                     <p>
-                      <label htmlFor="file">Select an image to share</label>
+                      <label htmlFor='file'>Select an image to share</label>
                     </p>
                     {shareImage && (
-                      <img src={URL.createObjectURL(shareImage)} alt="" />
+                      <img src={URL.createObjectURL(shareImage)} alt='' />
                     )}
                   </UploadImage>
                 ) : (
                   assetArea === 'media' && (
                     <>
                       <input
-                        type="text"
-                        placeholder="Please input a video link"
+                        type='text'
+                        placeholder='Please input a video link'
                         value={videoLink}
-                        onChange={(e) => setVideoLink(e.target.value)}
+                        onChange={e => setVideoLink(e.target.value)}
                       />
                       {videoLink && (
-                        <ReactPlayer width="100%" url={videoLink} />
+                        <ReactPlayer width='100%' url={videoLink} />
                       )}
                     </>
                   )
@@ -120,22 +120,22 @@ const PostModal = (props) => {
             <SharedCreation>
               <AttachAssets>
                 <AssetButton onClick={() => switchAssetArea('image')}>
-                  <img src="images/share-image.svg" alt="" />
+                  <img src='images/share-image.svg' alt='' />
                 </AssetButton>
                 <AssetButton onClick={() => switchAssetArea('media')}>
-                  <img src="images/share-video.svg" alt="" />
+                  <img src='images/share-video.svg' alt='' />
                 </AssetButton>
               </AttachAssets>
 
               <ShareComment>
                 <AssetButton>
-                  <img src="images/share-comment.svg" alt="" />
+                  <img src='images/share-comment.svg' alt='' />
                 </AssetButton>
               </ShareComment>
 
               <PostButton
                 disabled={!editorText ? true : false}
-                onClick={(e) => postArticle(e)}
+                onClick={e => postArticle(e)}
               >
                 Post
               </PostButton>
@@ -265,10 +265,10 @@ const PostButton = styled.button`
   border-radius: 20px;
   padding-left: 16px;
   padding-right: 16px;
-  background: ${(props) => (props.disabled ? 'rgba(0, 0, 0, 0.8)' : '#0a66c2')};
-  color: ${(props) => (props.disabled ? 'rgba(1, 1, 1, 0.2)' : 'white')};
+  background: ${props => (props.disabled ? 'rgba(0, 0, 0, 0.8)' : '#0a66c2')};
+  color: ${props => (props.disabled ? 'rgba(1, 1, 1, 0.2)' : 'white')};
   &:hover {
-    background: ${(props) =>
+    background: ${props =>
       props.disabled ? 'rgba(0, 0, 0, 0.08)' : '#004182'};
   }
 `;
@@ -296,14 +296,14 @@ const UploadImage = styled.div`
   }
 `;
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     user: state.userState.user,
   };
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  postArticle: (payload) => dispatch(postArticleAPI(payload)),
+const mapDispatchToProps = dispatch => ({
+  postArticle: payload => dispatch(postArticleAPI(payload)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostModal);
