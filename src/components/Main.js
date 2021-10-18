@@ -69,7 +69,7 @@ const Main = (props) => {
         </button>
 
         <button>
-          <img src="/images/article-icon.png" alt="" />
+          <img src="/images/article-icon.svg" alt="" />
           <span>Write article</span>
         </button>
       </div>
@@ -111,7 +111,7 @@ const Main = (props) => {
        <SocialCounts>
          <li>
            <button>
-             <img src="/images/like-icon.png" alt="" />
+             <img src="/images/heart-icon.svg" alt="" />
              <img src="/images/clapping.png" alt="" />
              <span>75</span>
            </button>
@@ -122,7 +122,7 @@ const Main = (props) => {
        </SocialCounts>
        <SocialActions>
          <button>
-            <img src="/images/like-icon.png" alt="" />
+            <img src="/images/like-icon.svg" alt="" />
             <span>Like</span>
           </button>
           <button>

@@ -77,7 +77,7 @@ export function postArticleAPI(payload) {
                     },
                     video: payload.video,
                     sharedImg: downloadURL,
-                    comments: 0,
+                    comments: `0 comments`,
                     description: payload.description,
                 });
                 dispatch(setLoading(false));
@@ -92,7 +92,7 @@ export function postArticleAPI(payload) {
                     },
                     video: payload.video,
                     sharedImg: '',
-                    comments: 0,
+                    comments: `0 comments`,
                     description: payload.description,
                 });
                 dispatch(setLoading(false));
