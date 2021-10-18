@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import styled from "styled-components";
+import styled from 'styled-components';
 import { signOutAPI } from '../actions';
 
 const Header = (props) => {
@@ -58,16 +58,16 @@ const Header = (props) => {
 
             <User>
               <a>
-                {props.user && props.user.photoURL ?  (
+                {props.user && props.user.photoURL ? (
                   <img src={props.user.photoURL} alt="" />
-                  ) : (
-                    <img src="/images/user.svg" alt="" />
-                  )}
+                ) : (
+                  <img src="/images/user.svg" alt="" />
+                )}
                 <span>
                   Me
                   <img src="/images/down-icon.svg" alt="" />
                 </span>
-              </a>  
+              </a>
 
               <SignOut onClick={() => props.signOut()}>
                 <a>Sign Out</a>
@@ -170,7 +170,7 @@ const NavListWrap = styled.ul`
   list-style-type: none;
   .active {
     span:after {
-      content: "";
+      content: '';
       transform: scaleX(1);
       border-bottom: 2px solid var(--white, #fff);
       bottom: 0;
@@ -256,12 +256,12 @@ const User = styled(NavList)`
 
 const Work = styled(User)`
   border-left: 1px solid rgba(0, 0, 0, 0.08);
-  `;
+`;
 
 const mapStateToProps = (state) => {
-    return {
-      user: state.userState.user,
-    };
+  return {
+    user: state.userState.user,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => ({

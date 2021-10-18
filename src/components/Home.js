@@ -1,21 +1,21 @@
-import styled from "styled-components";
-import Leftside from "./Leftside";
-import Main from "./Main";
-import Rightside from "./Rightside";
+import styled from 'styled-components';
+import Leftside from './Leftside';
+import Main from './Main';
+import Rightside from './Rightside';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
 
 const Home = (props) => {
   return (
     <Container>
-        {!props.user && <Redirect to="/" />}
+      {!props.user && <Redirect to="/" />}
       <Section>
         <h5>
           <a>Hiring in a hurry?</a>
-        <p>
-          Find talented pros in record time with Upwork and keep business
-          moving.
-        </p>
+          <p>
+            Find talented pros in record time with Upwork and keep business
+            moving.
+          </p>
         </h5>
       </Section>
       <Layout>
@@ -68,7 +68,7 @@ const Section = styled.section`
 
 const Layout = styled.div`
   display: grid;
-  grid-template-areas: "leftside main rightside";
+  grid-template-areas: 'leftside main rightside';
   grid-template-columns: minmax(0, 5fr) minmax(0, 12fr) minmax(300px, 7fr);
   column-gap: 25px;
   row-gap: 25px;
@@ -84,7 +84,7 @@ const Layout = styled.div`
 const mapStateToProps = (state) => {
   return {
     user: state.userState.user,
-  }
+  };
 };
 
 export default connect(mapStateToProps)(Home);
