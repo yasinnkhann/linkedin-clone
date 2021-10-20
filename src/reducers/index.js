@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
-
-import userReducer from './userReducer';
-import articleReducer from './articleReducer';
+import userReducer from './userReducer.js';
+import articleReducer from './articleReducer.js';
 
 const rootReducer = combineReducers({
   userState: userReducer,

@@ -1,4 +1,4 @@
-import { SET_LOADING_STATUS, GET_ARTICLES } from '../actions/actionType';
+import { SET_LOADING_STATUS, GET_ARTICLES } from '../actions/actionType.js';
 
 export const initState = {
   articles: [],

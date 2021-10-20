@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import PostModal from './PostModal';
-import { getArticlesAPI } from '../actions';
+import PostModal from './PostModal.js';
+import { getArticlesAPI } from '../actions/index.js';
 
 const Main = props => {
   const [showModal, setShowModal] = useState('close');

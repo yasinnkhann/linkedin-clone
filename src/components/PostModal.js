@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import styled from 'styled-components';
-import ReactPlayer from 'react-player';
 import { connect } from 'react-redux';
+import ReactPlayer from 'react-player';
+import styled from 'styled-components';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
 import 'firebase/compat/storage';
-import { postArticleAPI } from '../actions';
+import { postArticleAPI } from '../actions/index.js';
 
 const PostModal = props => {
   const [editorText, setEditorText] = useState('');
@@ -94,7 +94,9 @@ const PostModal = props => {
                       onChange={handleChange}
                     />
                     <p>
-                      <label htmlFor='file'>Select an image to share</label>
+                      <label htmlFor='file'>
+                        Click here to share your photo
+                      </label>
                     </p>
                     {shareImage && (
                       <img src={URL.createObjectURL(shareImage)} alt='' />

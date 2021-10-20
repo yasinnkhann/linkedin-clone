@@ -1,9 +1,9 @@
-import styled from 'styled-components';
-import Leftside from './Leftside';
-import Main from './Main';
-import Rightside from './Rightside';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
+import Main from './Main.js';
+import Leftside from './Leftside.js';
+import Rightside from './Rightside.js';
 
 const Home = props => {
   return (
