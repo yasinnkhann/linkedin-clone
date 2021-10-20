@@ -12,10 +12,7 @@ const Home = props => {
       <Section>
         <h5>
           <a>Hiring in a hurry?</a>
-          <p>
-            Find talented pros in record time with Upwork and keep business
-            moving.
-          </p>
+          <p>Find talented pros in record time and keep business moving.</p>
         </h5>
       </Section>
       <Layout>
